@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .top {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Crypt Buddy</title>
+    <link rel="stylesheet" href="tailwind.css" />
+    <script defer src="./scripts/copyKey.js"></script>
+  </head>
+  <body class="bg-gray-800">
+    <div class="top">
+      <button
+        id="copy"
+        class="
+          inline-flex
+          text-white
+          border-1
+          transform
+          transition
+          hover:scale-105
+          duration-500
+          rounded-full
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#ffffff"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          height="25px"
+          width="25px"
+          version="1.1"
+          id="Layer_1"
+          x="0px"
+          y="0px"
+          viewBox="0 0 115.77 122.88"
+          style="enable-background: new 0 0 115.77 122.88"
+          xml:space="preserve"
+        >
+          <style type="text/css">
+            .st0 {
+              fill-rule: evenodd;
+              clip-rule: evenodd;
+            }
+          </style>
+          <g>
+            <path
+              class="st0"
+              d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"
+            />
+          </g>
+        </svg>
+      </button>
+    </div>
+    <section class="center">
+      <div class="container mx-auto px-4 justify-center content-center">
+        <h1 class="font-sans text-5xl mb-7 font-black text-white">Hi 👋</h1>
+        <h1 class="font-sans text-2xl mb-7 font-black text-white">
+          What shall we do?
+        </h1>
+        <div class="grid grid-cols-1 gap-4 flex justify-center">
+          <div>
+            <button
+              onclick="window.location='./pages/encrypt.html'"
+              class="
+                inline-flex
+                text-white
+                bg-blue-800
+                border-0
+                py-2
+                px-6
+                ease-in-out
+                focus:outline-none
+                hover:bg-black
+                transform
+                transition
+                hover:scale-110
+                duration-500
+                rounded-md
+                hover:-translate-y-1
+                text-lg
+                font-bold
+              "
+            >
+              Encrypt a message
+            </button>
+          </div>
+          <dev>
+            <button
+              onclick="window.location='./pages/decrypt.html'"
+              class="
+                inline-flex
+                text-white
+                bg-blue-800
+                border-0
+                py-2
+                px-6
+                focus:outline-none
+                hover:bg-black
+                transform
+                hover:scale-105
+                ease-in-out
+                rounded-md
+                hover:-translate-y-1
+                transition
+                duration-500
+                rounded
+                text-lg
+                font-bold
+              "
+            >
+              Decrypt/Verify a message
+            </button>
+          </dev>
+          <div>
+            <button
+              onclick="window.location='./pages/keychain.html'"
+              class="
+                inline-flex
+                text-white
+                bg-blue-800
+                border-0
+                py-2
+                px-6
+                focus:outline-none
+                hover:bg-black
+                transform
+                transition
+                ease-in-out
+                rounded-md
+                hover:-translate-y-1 hover:scale-105
+                duration-500
+                rounded
+                text-lg
+                font-bold
+              "
+            >
+              Open your keychain
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

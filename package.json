@@ -1,0 +1,62 @@
+{
+  "name": "crypt-buddy",
+  "productName": "Crypt Buddy",
+  "version": "1.0.0",
+  "description": "Ultra-minimal app for pgp encryption.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Kush Patel",
+    "email": "kush@kush.in"
+  },
+  "license": "Apache-2.0",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "C:/Users/kush/Desktop/path31.ico"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "crypt_buddy"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-prompt": "^1.6.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.59",
+    "@electron-forge/maker-deb": "^6.0.0-beta.59",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.59",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.59",
+    "@electron-forge/maker-zip": "^6.0.0-beta.59",
+    "electron": "13.1.7"
+  }
+}

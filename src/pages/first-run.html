@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Startup | Crypt Buddy</title>
+    <link rel="stylesheet" href="../tailwind.css" />
+    <script defer src="../scripts/first.js"></script>
+    <style>
+      .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .home {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+      .animated {
+        animation: fadeIn 2s;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        80% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-800">
+    <div class="home">
+      <button
+        onclick="window.location='./first-run.html'"
+        class="
+          inline-flex
+          text-white
+          bg-blue-800
+          border-0
+          py-2
+          px-6
+          focus:outline-none
+          hover:bg-black
+          transform
+          transition
+          hover:scale-105
+          duration-500
+          rounded-full
+          text-lg
+          font-bold
+        "
+      >
+        Back
+      </button>
+    </div>
+    <div class="center">
+      <h1 id="1" class="animated text-2xl font-sans font-bold text-white">
+        Hello 👋, I can help you with some cryptographic works (like sending
+        your friend a secret 🤫)
+      </h1>
+      <br />
+      <div id="buttons" class="grid grid-cols-2 gap-2">
+        <button
+          id="generate"
+          class="
+            inline-flex
+            text-white
+            bg-blue-800
+            border-0
+            py-2
+            px-6
+            focus:outline-none
+            hover:bg-black
+            transform
+            transition
+            ease-in-out
+            rounded-md
+            hover:-translate-y-1 hover:scale-105
+            duration-500
+            rounded
+            text-lg
+            font-bold
+          "
+        >
+          Generate keys
+        </button>
+        <button
+          id="import"
+          class="
+            inline-flex
+            text-white
+            bg-blue-800
+            border-0
+            py-2
+            px-6
+            focus:outline-none
+            hover:bg-black
+            transform
+            transition
+            ease-in-out
+            rounded-md
+            hover:-translate-y-1 hover:scale-105
+            duration-500
+            rounded
+            text-lg
+            font-bold
+          "
+        >
+          No! I have mine
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

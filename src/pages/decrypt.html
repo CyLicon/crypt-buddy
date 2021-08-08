@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Decrypt/Verify | Crypt Buddy</title>
+    <link rel="stylesheet" href="../tailwind.css" />
+    <script defer src="../scripts/decrypt.js"></script>
+    <style>
+      .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .home {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-800">
+    <div class="home">
+      <button
+        onclick="window.location='../index.html'"
+        class="
+          inline-flex
+          text-white
+          bg-blue-800
+          border-0
+          py-2
+          px-6
+          focus:outline-none
+          hover:bg-black
+          transform
+          transition
+          hover:scale-105
+          duration-500
+          rounded-full
+          text-lg
+          font-bold
+        "
+      >
+        Home
+      </button>
+    </div>
+    <div class="center">
+      <textarea
+        class="
+          bg-gray-400
+          font-sans font-xl font-semibold
+          border-transparent
+          py-1
+          px-2
+          rounded-lg
+        "
+        placeholder="Enter encrypted message here"
+        rows="8"
+        cols="80"
+      ></textarea>
+      <br />
+      <div class="grid grid-cols-1 gap-2">
+        <button
+          class="
+            inline-flex
+            text-white
+            bg-gray-700
+            border-0
+            py-2
+            px-6
+            focus:outline-none
+            hover:bg-black
+            transform
+            transition
+            hover:-translate-y-1
+            duration-500
+            rounded-md
+            text-lg
+            font-bold
+          "
+        >
+          Decrypt
+        </button>
+        <button
+          class="
+            inline-flex
+            text-white
+            bg-gray-700
+            border-0
+            py-2
+            px-6
+            focus:outline-none
+            hover:bg-black
+            transform
+            transition
+            hover:-translate-y-1
+            duration-500
+            rounded-md
+            text-lg
+            font-bold
+          "
+        >
+          Verify Signature
+        </button>
+        <button
+          class="
+            inline-flex
+            text-white
+            bg-gray-700
+            border-0
+            py-2
+            px-6
+            focus:outline-none
+            hover:bg-black
+            transform
+            transition
+            hover:-translate-y-1
+            duration-500
+            rounded-md
+            text-lg
+            font-bold
+          "
+        >
+          Do Both!
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
