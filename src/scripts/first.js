@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+const { generateKey, readKey, decryptKey, readPrivateKey } = require("openpgp");
 const { writeFile } = require("fs");
 const { userkeys } = require("../keystore");
 const { remote } = require("electron");
@@ -12,27 +12,20 @@ const buttonSpace = document.getElementById("buttons");
 
 const importBtn = document.getElementById("import");
 
-function generateKeys(password) {
-  const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", {
-    modulusLength: 4096,
-    publicKeyEncoding: {
-      type: "spki",
-      format: "pem",
-    },
-    privateKeyEncoding: {
-      type: "pkcs8",
-      format: "pem",
-      cipher: "aes-256-cbc",
-      passphrase: password,
-    },
+async function generateKeys(password) {
+  const { privateKey, publicKey } = await generateKey({
+    type: "rsa", // Type of the key
+    rsaBits: 4096, // RSA key size (defaults to 4096 bits)
+    userIDs: [{ name: null, email: null }],
+    passphrase: password, // protects the private key
   });
   userkeys.set("private", privateKey);
   userkeys.set("public", publicKey);
-  buttonSpace.innerHTML = `<span class="font-semibold text-white font-lg col-span-2">I usually keep your keys safe with me, but just in case . . .</span><button id="private"
+  buttonSpace.innerHTML = `<span class="font-semibold text-white font-lg col-span-2">I usually keep your keys safe with me, but just in case</span><button id="private"
               class="
                 inline-flex
                 text-white
-                bg-blue-800
+                bg-blue-600
                 border-0
                 py-2
                 px-6
@@ -54,7 +47,7 @@ function generateKeys(password) {
               class="
                 inline-flex
                 text-white
-                bg-blue-800
+                bg-blue-600
                 border-0
                 py-2
                 px-6
@@ -78,7 +71,7 @@ function generateKeys(password) {
                 col-span-2
                 inline-flex
                 text-white
-                bg-blue-800
+                bg-blue-600
                 border-0
                 py-2
                 px-6
@@ -130,7 +123,7 @@ generateBtn.onclick = (e) => {
                 col-span-2
                 inline-flex
                 text-white
-                bg-blue-800
+                bg-blue-600
                 border-0
                 py-2
                 px-6
@@ -167,7 +160,7 @@ importBtn.onclick = (e) => {
               class="
                 inline-flex
                 text-white
-                bg-blue-800
+                bg-blue-600
                 border-0
                 py-2
                 px-6
@@ -189,7 +182,7 @@ importBtn.onclick = (e) => {
               class="
                 inline-flex
                 text-white
-                bg-blue-800
+                bg-blue-600
                 border-0
                 py-2
                 px-6
@@ -212,7 +205,7 @@ importBtn.onclick = (e) => {
                 col-span-2
                 inline-flex
                 text-white
-                bg-blue-800
+                bg-blue-600
                 border-0
                 py-2
                 px-6
@@ -246,16 +239,14 @@ importBtn.onclick = (e) => {
             type: "password",
             required: true,
           },
-        }).then((password) => {
-          try {
-            crypto.createPrivateKey({
-              key: data,
-              passphrase: password,
-            });
-          } catch (e) {
+        }).then(async (password) => {
+          decryptKey({
+            privateKey: await readPrivateKey({ armoredKey: data }),
+            passphrase: password,
+          }).catch((err) => {
             alert("An error occured! (check your key and password)");
-            throw e;
-          }
+            throw err;
+          });
           userkeys.set("private", data);
         });
       });
@@ -271,14 +262,10 @@ importBtn.onclick = (e) => {
     if (filePaths[0]) {
       readFile(filePaths[0], "utf8", (err, data) => {
         if (err) alert(err.message);
-        try {
-          crypto.createPublicKey({
-            key: data,
-          });
-        } catch (e) {
-          alert("An error occured! (check your key)");
-          throw e;
-        }
+        readKey({ armoredKey: data }).catch((err) => {
+          if (err) alert("An error occured! (check your key)");
+          throw err;
+        });
         userkeys.set("public", data);
       });
     }

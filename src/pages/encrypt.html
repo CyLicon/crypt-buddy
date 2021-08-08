@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Encrypt | Crypt Buddy</title>
     <link rel="stylesheet" href="../tailwind.css" />
-    <script defer src="../scripts/decrypt.js"></script>
+    <script defer src="../scripts/encrypt.js"></script>
     <style>
       .center {
         margin: 0;
@@ -19,6 +19,52 @@
         top: 10px;
         left: 10px;
       }
+      .title {
+        margin: 0;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, 0%);
+      }
+      .dropbtn {
+        padding: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #000000;
+      }
+
+      .dropdown {
+        position: absolute;
+        z-index: 3;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      .dropdown-content a {
+        color: rgb(255, 255, 255);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #1f2937;
+      }
+
+      .show {
+        display: block;
+      }
     </style>
   </head>
   <body class="bg-gray-800">
@@ -28,12 +74,11 @@
         class="
           inline-flex
           text-white
-          bg-blue-800
+          bg-blue-600
           border-0
           py-2
           px-6
           focus:outline-none
-          hover:bg-black
           transform
           transition
           hover:scale-105
@@ -46,8 +91,36 @@
         Home
       </button>
     </div>
+    <div class="dropdown title">
+      <button
+        id="toggle"
+        onclick="toggle()"
+        class="bg-gray-700 rounded-md dropbtn font-semibold text-white font-xl"
+      >
+        Select Recipent
+      </button>
+      <script>
+        function toggle() {
+          document.getElementById("dropdown").classList.toggle("show");
+        }
+        window.onclick = function (event) {
+          if (!event.target.matches(".dropbtn")) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains("show")) {
+                openDropdown.classList.remove("show");
+              }
+            }
+          }
+        };
+      </script>
+      <div id="dropdown" class="dropdown-content rounded-md bg-gray-700"></div>
+    </div>
     <div class="center">
       <textarea
+        id="msg"
         class="
           bg-gray-400
           font-sans font-xl font-semibold
@@ -63,8 +136,9 @@
         cols="80"
       ></textarea>
       <br />
-      <div class="grid grid-cols-1 gap-2">
+      <div class="grid grid-cols-3 gap-2">
         <button
+          id="encrypt"
           class="
             inline-flex
             text-white
@@ -86,6 +160,7 @@
           Encrypt
         </button>
         <button
+          id="sign"
           class="
             inline-flex
             text-white
@@ -107,6 +182,7 @@
           Add Signature
         </button>
         <button
+          id="both"
           class="
             inline-flex
             text-white
