@@ -1,3 +1,7 @@
+# This is boring (archived)
+
+I learnt web development ¯\_(ツ)_/¯
+
 # Crypt Buddy
 ✨ A simple minimalist app for PGP encryption of messages (strings) based on the [OpenPGP protocol](https://www.openpgp.org/) 
 
